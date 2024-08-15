@@ -23,7 +23,7 @@ const sizes = {
 const variations = {
   primary: css`
     color: var(--color-brand-50);
-    background-color: var(--color-brand-600);
+    background-color: var(--color-brand-800);
 
     &:hover {
       background-color: var(--color-brand-700);
@@ -51,7 +51,8 @@ const variations = {
 const Button = styled.button`
   border: none;
   border-radius: var(--border-radius-sm);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
+
   ${(props) =>
     props.width === "full" &&
     css`

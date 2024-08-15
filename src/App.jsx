@@ -1,11 +1,13 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./pages/Login";
+import Login from "./features/auth/Login";
 import PageNotFound from "./pages/PageNotFound";
 import GlobalStyles from "./utils/globalStyles";
-import SignUp from "./pages/SignUp";
+import SignUp from "./features/auth/SignUp";
 import AuthLayout from "./ui/AuthLayout";
+import ProtectedRoute from "./ui/ProtectedRoute";
+import AppLayout from "./pages/AppLayout";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,7 +28,15 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
           </Route>
-          <Route path="*" element={<PageNotFound />} />
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
         </Routes>
       </BrowserRouter>
       <Toaster

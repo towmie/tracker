@@ -9,6 +9,7 @@ const StyledFormRow = styled.div`
 
 const Label = styled.label`
   font-weight: 500;
+  font-size: 1.6rem;
 `;
 
 const Error = styled.span`
@@ -16,7 +17,7 @@ const Error = styled.span`
   color: var(--color-red-700);
 `;
 
-function FormRowVertical({ label, error, children }) {
+function FormRow({ label, error, children }) {
   return (
     <StyledFormRow>
       {label && <Label htmlFor={children.props.id}>{label}</Label>}
@@ -26,4 +27,4 @@ function FormRowVertical({ label, error, children }) {
   );
 }
 
-export default FormRowVertical;
+export default FormRow;

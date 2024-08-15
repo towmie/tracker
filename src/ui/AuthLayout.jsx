@@ -19,22 +19,24 @@ const ImageBg = styled.div`
     display: none;
   }
 `;
-// const StyledLoginForm = styled.div`
-//   width: 50%;
-//   height: 100vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
+const StyledLoginForm = styled.div`
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-//   @media (max-width: 768px) {
-//     width: 100%;
-//   }
-// `;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
 function AuthLayout() {
   return (
     <Layout>
       <ImageBg />
-      <Outlet />
+      <StyledLoginForm>
+        <Outlet />
+      </StyledLoginForm>
     </Layout>
   );
 }
