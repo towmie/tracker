@@ -8,6 +8,8 @@ import SignUp from "./features/auth/SignUp";
 import AuthLayout from "./ui/AuthLayout";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import AppLayout from "./pages/AppLayout";
+import Home from "./pages/Home";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,6 +24,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalStyles />
+      <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
         <Routes>
           <Route element={<AuthLayout />}>
@@ -35,6 +38,7 @@ function App() {
               </ProtectedRoute>
             }
           >
+            <Route index path="home" element={<Home />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
