@@ -17,9 +17,9 @@ function ProtectedRoute({ children }) {
 
   useEffect(
     function () {
-      if (!isAuth) navigate("/login");
+      if (!isAuth && !isPending) navigate("/login");
     },
-    [isAuth, navigate]
+    [isAuth, isPending, navigate]
   );
 
   if (isPending)

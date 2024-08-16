@@ -10,10 +10,10 @@ import { useLogin } from "./useLogin";
 import Spinner from "../../ui/Spinner";
 
 function Login() {
-  const [email, setEmail] = useState("andrei@test.com");
-  const [password, setPassword] = useState("12345678");
+  const [email, setEmail] = useState("andrei@textss.com");
+  const [password, setPassword] = useState("12@dsA34sdsds5678");
 
-  const { login, isLoggingig } = useLogin();
+  const { login, isLoading } = useLogin();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ function Login() {
     login({ email, password });
   };
 
-  if (isLoggingig) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   return (
     <FormWrapper>
@@ -42,8 +42,8 @@ function Login() {
             onChange={(value) => setPassword(value)}
           />
         </FormRow>
-        <Button width="full" disabled={isLoggingig}>
-          Login
+        <Button width="full" disabled={isLoading}>
+          {isLoading ? "Loading..." : "Login"}
         </Button>
         <P>
           Don’t have an account? <Link to="/signup">Sign Up</Link>
